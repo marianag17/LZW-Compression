@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hC3JwMgB91/SCzvFaVLn/iiDzqIKTF4/OY2BFPsW+PP291bZF/dWP/mZ8Ufmq+F10mFUZDF9mKXJsESt5igtoQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\luis\\Desktop\\URL\\SEGUNDO CICLO 2020\\ESTRUCTURAS DE DATOS II\\LABORATORIO-04\\LZWCompression\\LZWCompression.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
