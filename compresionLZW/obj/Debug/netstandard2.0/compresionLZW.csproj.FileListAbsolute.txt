@@ -1,0 +1,9 @@
+C:\jasolis\c#\LZW-Compression\compresionLZW\bin\Debug\netstandard2.0\compresionLZW.deps.json
+C:\jasolis\c#\LZW-Compression\compresionLZW\bin\Debug\netstandard2.0\compresionLZW.dll
+C:\jasolis\c#\LZW-Compression\compresionLZW\bin\Debug\netstandard2.0\compresionLZW.pdb
+C:\jasolis\c#\LZW-Compression\compresionLZW\obj\Debug\netstandard2.0\compresionLZW.csprojAssemblyReference.cache
+C:\jasolis\c#\LZW-Compression\compresionLZW\obj\Debug\netstandard2.0\compresionLZW.AssemblyInfoInputs.cache
+C:\jasolis\c#\LZW-Compression\compresionLZW\obj\Debug\netstandard2.0\compresionLZW.AssemblyInfo.cs
+C:\jasolis\c#\LZW-Compression\compresionLZW\obj\Debug\netstandard2.0\compresionLZW.csproj.CoreCompileInputs.cache
+C:\jasolis\c#\LZW-Compression\compresionLZW\obj\Debug\netstandard2.0\compresionLZW.dll
+C:\jasolis\c#\LZW-Compression\compresionLZW\obj\Debug\netstandard2.0\compresionLZW.pdb

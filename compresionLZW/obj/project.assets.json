@@ -50,6 +50,7 @@
       "path": "netstandard.library/2.0.3",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -184,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\jasolis\\c#\\LZW-Compression\\LZWCompression\\LZWCompression.csproj",
-      "projectName": "LZWCompression",
-      "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\LZWCompression\\LZWCompression.csproj",
+      "projectUniqueName": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj",
+      "projectName": "compresionLZW",
+      "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj",
       "packagesPath": "C:\\Users\\Juan-Gtsk\\.nuget\\packages\\",
-      "outputPath": "C:\\jasolis\\c#\\LZW-Compression\\LZWCompression\\obj\\",
+      "outputPath": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Juan-Gtsk\\AppData\\Roaming\\NuGet\\NuGet.Config",

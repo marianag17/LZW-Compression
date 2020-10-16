@@ -1,0 +1,16 @@
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\testLZW.exe
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\testLZW.deps.json
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\testLZW.runtimeconfig.json
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\testLZW.runtimeconfig.dev.json
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\testLZW.dll
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\testLZW.pdb
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.csprojAssemblyReference.cache
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.AssemblyInfoInputs.cache
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.AssemblyInfo.cs
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.csproj.CoreCompileInputs.cache
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.dll
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.pdb
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.genruntimeconfig.cache
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\compresionLZW.dll
+C:\jasolis\c#\LZW-Compression\testLZW\bin\Debug\netcoreapp3.1\compresionLZW.pdb
+C:\jasolis\c#\LZW-Compression\testLZW\obj\Debug\netcoreapp3.1\testLZW.csproj.CopyComplete
