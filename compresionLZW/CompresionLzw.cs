@@ -158,13 +158,19 @@ namespace compresionLZW
             string anterior = "";
             int asciiActual = 0;
             string actual = "";
-            CadenaDescompresa = TablaCaracteresInversa[asciiActual];
+
+            if (TablaCaracteresInversa.ContainsKey(asciiActual))
+            {
+                CadenaDescompresa = TablaCaracteresInversa[asciiActual];
+            }
+            
+
             for (int i = 1; i<TextoArchivo.Length; i++)
             {
                 asciiActual = (int) TextoArchivo[i];
                 actual = (TablaCaracteresInversa[asciiActual]).ToString();
                 actual = actual[0].ToString();
-                if (TablaCaracteres[(anterior + actual)] == null)
+                if (!TablaCaracteres.ContainsKey((anterior + actual)))
                 {
                     contadorCaracteres++;
                     TablaCaracteres.Add((anterior + actual), contadorCaracteres);
@@ -199,7 +205,7 @@ namespace compresionLZW
 
     private void separarContenido()
     {
-        String nombre = "";
+        string nombre = "";
         for (int i = 0; i < TextoArchivo.Length; i++)
         {
             if (TextoArchivo[i] != '|')
@@ -213,10 +219,10 @@ namespace compresionLZW
             }
         }
         setNombreOriginalArchivo(nombre);
-        String tablaCaracteres = "";
+        string tablaCaracteres = "";
         for (int i = 0; i < TextoArchivo.Length; i++)
         {
-            if (TextoArchivo[i].Equals("|") && TextoArchivo[(i + 1)].Equals("|"))
+            if (TextoArchivo[i].Equals('|') && TextoArchivo[(i + 1)].Equals('|'))
             {
                 TextoArchivo = TextoArchivo.Substring(i + 2);
                 i = TextoArchivo.Length;
@@ -226,15 +232,16 @@ namespace compresionLZW
                 tablaCaracteres += TextoArchivo[i];
             }
         }
-        String caracterAparicion = "";
-        String caracter = "";
+
+        string caracterAparicion = "";
+        string caracter = "";
         while (tablaCaracteres.Length > 0)
         {
             caracter = tablaCaracteres[0].ToString();
             tablaCaracteres = tablaCaracteres.Substring(1);
             for (int i = 0; i < 2; i++)
             {
-                caracterAparicion += tablaCaracteres[i].ToString();
+                caracterAparicion += ((char)tablaCaracteres[i]).ToString();
             }
             tablaCaracteres = tablaCaracteres.Substring(2);
             TablaCaracteres.Add(caracter, int.Parse(caracterAparicion));
