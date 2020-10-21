@@ -16,7 +16,7 @@ namespace compresionLZW
         int contadorCaracteres = 2;
         public double Factor;
         public double Razon;
-        public string pathDirectorioCompresiones = "";
+ 
         public string NombreArchivoNuevo = "";
         public string NombreOriginalArchivo = "";
         public string ubicacionArchivo = "";
@@ -108,7 +108,7 @@ namespace compresionLZW
             string workingDirectory = Environment.CurrentDirectory;
             string pathFolderActual = Directory.GetParent(workingDirectory).FullName;
                     
-            pathDirectorioCompresiones = pathFolderActual + "\\CompresionesEstructuras\\";
+            string pathDirectorioCompresiones = pathFolderActual + "\\CompresionesEstructuras\\";
            
            
             
@@ -186,19 +186,19 @@ namespace compresionLZW
     public void escribirArchivoDescompreso(String nombreArchivo, String contenido) 
     {
         string workingDirectory = Environment.CurrentDirectory;
-        string pathFolderActual = Directory.GetParent(workingDirectory).Parent.Parent.Parent.FullName;
-        string pathDirectorioCompresiones = pathFolderActual + "\\DescompresionesEstructuras\\";
+        string pathFolderActual = Directory.GetParent(workingDirectory).FullName;
+        string pathDirectorioDescompresiones = pathFolderActual + "\\DescompresionesEstructuras\\";
 
-            if (!Directory.Exists(pathDirectorioCompresiones)) {
-                Directory.CreateDirectory(pathDirectorioCompresiones);
+            if (!Directory.Exists(pathDirectorioDescompresiones)) {
+                Directory.CreateDirectory(pathDirectorioDescompresiones);
             }
         
 
-        using (FileStream fs = File.Create(pathDirectorioCompresiones + nombreArchivo))
+        using (FileStream fs = File.Create(pathDirectorioDescompresiones + nombreArchivo))
         {
             byte[] byteArray = new UTF8Encoding(true).GetBytes(contenido);
             fs.Write(byteArray, 0, byteArray.Length);
-            ubicacionArchivo = pathDirectorioCompresiones + nombreArchivo;
+            ubicacionArchivo = pathDirectorioDescompresiones + nombreArchivo;
         }
           
     }
