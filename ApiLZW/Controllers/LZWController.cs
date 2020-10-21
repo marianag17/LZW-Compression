@@ -49,7 +49,7 @@ namespace ApiLZW.Controllers
                 compresionData.NombreComprimido = compresor.getNombreArchivoNuevo();
                 compresionData.RutaComprimido = compresor.ubicacionArchivo;
                 compresionData.RazonCompresion = compresor.Razon.ToString();
-                compresionData.PorcentajeReduccion = "45 %";
+                compresionData.PorcentajeReduccion = compresor.getPorcentajeReduccion();
                 compresionData.FactorCompresion = compresor.Factor.ToString(); 
 
 

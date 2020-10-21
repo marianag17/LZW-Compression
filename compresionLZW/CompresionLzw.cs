@@ -13,10 +13,10 @@ namespace compresionLZW
         private Dictionary<string, int> TablaCaracteres = new Dictionary<string, int>();
         private Dictionary<int, string> TablaCaracteresInversa = new Dictionary<int, string>();
         private ArrayList TablaEscribir = new ArrayList();
+        private int PorcentajeReduccion = 0;
         int contadorCaracteres = 2;
         public double Factor;
         public double Razon;
- 
         public string NombreArchivoNuevo = "";
         public string NombreOriginalArchivo = "";
         public string ubicacionArchivo = "";
@@ -102,7 +102,7 @@ namespace compresionLZW
             return contenido;
         }
 
-        private bool escribirArchivoCompreso(String nombreArchivo, String contenido)
+        private bool escribirArchivoCompreso(string nombreArchivo, string contenido)
         {
        
             string workingDirectory = Environment.CurrentDirectory;
@@ -120,7 +120,8 @@ namespace compresionLZW
                 fs.Write(byteArray , 0, byteArray.Length);
                 ubicacionArchivo = pathDirectorioCompresiones + nombreArchivo + ".lzw";
             }
-           
+
+            PorcentajeReduccion = (contenido.Length * 100) / (TextoArchivo.Length);
            
             return true;
         }
@@ -159,9 +160,9 @@ namespace compresionLZW
             int asciiActual = 0;
             string actual = "";
 
-            if (TablaCaracteresInversa.ContainsKey(asciiActual))
+            if (TablaCaracteresInversa.ContainsKey(asciiAnterior))
             {
-                CadenaDescompresa = TablaCaracteresInversa[asciiActual];
+                CadenaDescompresa += TablaCaracteresInversa[asciiAnterior];
             }
             
 
@@ -272,6 +273,11 @@ namespace compresionLZW
     {
         return NombreArchivoNuevo;
     }
-}
+
+        public String getPorcentajeReduccion()
+        {
+            return PorcentajeReduccion.ToString() + "%";
+        }
+    }
 
 }
