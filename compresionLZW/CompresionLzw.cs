@@ -16,12 +16,12 @@ namespace compresionLZW
         int contadorCaracteres = 2;
         public double Factor;
         public double Razon;
-
+        public string pathDirectorioCompresiones = "";
         public string NombreArchivoNuevo = "";
         public string NombreOriginalArchivo = "";
         public string ubicacionArchivo = "";
 
-        public CompresionLzw(String contenido)
+        public CompresionLzw(string contenido)
         {
             TextoArchivo = contenido;
       
@@ -106,9 +106,9 @@ namespace compresionLZW
         {
        
             string workingDirectory = Environment.CurrentDirectory;
-            string pathFolderActual = Directory.GetParent(workingDirectory).Parent.Parent.Parent.FullName;
+            string pathFolderActual = Directory.GetParent(workingDirectory).FullName;
                     
-            string pathDirectorioCompresiones = pathFolderActual + "\\CompresionesEstructuras\\";
+            pathDirectorioCompresiones = pathFolderActual + "\\CompresionesEstructuras\\";
            
            
             

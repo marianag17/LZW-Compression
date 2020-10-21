@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LZWCompression", "LZWCompression\LZWCompression.csproj", "{7D682DE5-F741-4E68-87FE-AF9CF4D26DBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "compresionLZW", "compresionLZW\compresionLZW.csproj", "{61EC55E4-9F78-462B-87A7-2D024B572EE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "compresionLZW", "compresionLZW\compresionLZW.csproj", "{61EC55E4-9F78-462B-87A7-2D024B572EE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testLZW", "testLZW\testLZW.csproj", "{0131884B-403D-4394-82C8-79E9138AE550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testLZW", "testLZW\testLZW.csproj", "{0131884B-403D-4394-82C8-79E9138AE550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiLZW", "ApiLZW\ApiLZW.csproj", "{6C8AC552-D6D8-4279-A879-E1B53A92D902}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0131884B-403D-4394-82C8-79E9138AE550}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0131884B-403D-4394-82C8-79E9138AE550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0131884B-403D-4394-82C8-79E9138AE550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
