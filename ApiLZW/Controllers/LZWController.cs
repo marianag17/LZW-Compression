@@ -22,7 +22,7 @@ namespace ApiLZW.Controllers
         [HttpPost("compress/{name}")]
         public async Task<ActionResult> PostCompress(string name, [FromForm] IFormFile file)
         {
-            string textoArchivo = "";
+   
             string nombreArchivoOriginal = file.FileName;
             string nombreArchivoCompreso = name;
 
@@ -31,36 +31,76 @@ namespace ApiLZW.Controllers
 
             try
             {
+
+                
                 using (var stream = new StreamReader(file.OpenReadStream()))
                 {
 
-                    textoArchivo += stream.ReadToEnd();
+                    CompresionLzw compress = new CompresionLzw();
+                    compress.setNombreOriginalArchivo(nombreArchivoOriginal);
+                    compress.setNombreArchivoNuevo(nombreArchivoCompreso);
+                    compress.escribirArchivoCompreso(compress.getNombreOriginalArchivo() + "|");
+                    do
+                    {
+                        
+                        char[] buffer = new char[5000];
+                        int n = stream.ReadBlock(buffer, 0, 5000);
+                        char[] result = new char[n];
+                        Array.Copy(buffer, result, n);
+
+                        string res = new string(result);
+
+                        compress.ObtenerCaracteres(res);
+                        
+
+                    }
+
+                    while (!stream.EndOfStream);
+                    compress.escribirArchivoCompreso(compress.getContenidoTabla());
+                    compress.escribirArchivoCompreso("||");
+
+                    var path = compress.ubicacionArchivo;
+
+                    using (var stream2 = new StreamReader(file.OpenReadStream()))
+                    {
+
+                        do
+                        {
+                            
+                            char[] buffer = new char[5000];
+                            int n = stream2.ReadBlock(buffer, 0, 5000);
+                            char[] result = new char[n];
+                            Array.Copy(buffer, result, n);
+
+                            string res = new string(result);
+
+
+                            compress.Comprimir(res);
+                            compress.escribirArchivoCompreso(compress.TextoCompreso);
+    
+                        }
+
+                        while (!stream2.EndOfStream);
+                    }
+
+
+                    Compressions compresionData = new Compressions();
+                    compresionData.NombreOriginal = compress.getNombreOriginalArchivo();
+                    compresionData.NombreComprimido = compress.getNombreArchivoNuevo();
+                    compresionData.RutaComprimido = compress.ubicacionArchivo;
+                    compresionData.RazonCompresion = compress.Razon.ToString();
+                    compresionData.PorcentajeReduccion = compress.getPorcentajeReduccion();
+                    compresionData.FactorCompresion = compress.Factor.ToString();
+
+
+                    Storage.Instance.listaCompresiones.Add(compresionData);
+                    var streamCompress = System.IO.File.OpenRead(path);
+
+                    return new FileStreamResult(streamCompress, "application/lzw")
+                    {
+                        FileDownloadName = nombreArchivoCompreso + ".lzw"
+                    };
                 }
-
-                CompresionLzw compresor = new CompresionLzw(textoArchivo);
-                compresor.setNombreOriginalArchivo(nombreArchivoOriginal);
-                compresor.setNombreArchivoNuevo(nombreArchivoCompreso);
-                compresor.Comprimir();
-                var path = compresor.ubicacionArchivo;
-
-                Compressions compresionData = new Compressions();
-
-                compresionData.NombreOriginal = compresor.getNombreOriginalArchivo();
-                compresionData.NombreComprimido = compresor.getNombreArchivoNuevo();
-                compresionData.RutaComprimido = compresor.ubicacionArchivo;
-                compresionData.RazonCompresion = compresor.Razon.ToString();
-                compresionData.PorcentajeReduccion = compresor.getPorcentajeReduccion();
-                compresionData.FactorCompresion = compresor.Factor.ToString(); 
-
-
-                Storage.Instance.listaCompresiones.Add(compresionData);
-                var streamCompress = System.IO.File.OpenRead(path);
-
-
-                return new FileStreamResult(streamCompress, "application/lzw")
-                {
-                    FileDownloadName = nombreArchivoCompreso + ".lzw"
-                };
 
             }
             catch(Exception e) {
@@ -86,7 +126,7 @@ namespace ApiLZW.Controllers
                     textoArchivo += stream.ReadToEnd();
                 }
 
-                CompresionLzw lzw = new CompresionLzw(textoArchivo);
+                CompresionLzw lzw = new CompresionLzw();
 
                 lzw.Descomprimir();
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace compresionLZW
@@ -15,26 +16,34 @@ namespace compresionLZW
         private ArrayList TablaEscribir = new ArrayList();
         private int PorcentajeReduccion = 0;
         int contadorCaracteres = 2;
+        public String ContenidoTabla = "";
+        public string TextoCompreso = "";
         public double Factor;
         public double Razon;
         public string NombreArchivoNuevo = "";
         public string NombreOriginalArchivo = "";
         public string ubicacionArchivo = "";
 
-        public CompresionLzw(string contenido)
+        public CompresionLzw()
         {
-            TextoArchivo = contenido;
+          
       
         }
 
+       
+
+
         // Proceso de compresión
-        public void Comprimir()
+        public void Comprimir(string texto)
         {
-            ObtenerCaracteres();
+            TextoArchivo = texto;
             List<int> Compreso = new List<int>();
             string actual = "", siguiente = "";
             int compreso = 0;
-            Compreso.Add(1);
+            if (Compreso.Count == 0)
+            {
+                Compreso.Add(1);
+            }
             for (int i = 1; i < TextoArchivo.Length - 1; i++)
             {
                 actual = (TextoArchivo[i]).ToString();
@@ -57,14 +66,14 @@ namespace compresionLZW
                 }
                 Compreso.Add(TablaCaracteres[actual]);
             }
-            string TextoCompreso = "";
+             TextoCompreso = "";
             int NumeroActual = 0;
             for (int i = 0; i < Compreso.Count; i++)
             {
                 NumeroActual = Compreso[i];
                 TextoCompreso += ((char)NumeroActual).ToString();
             }
-            String ContenidoTabla = getContenidoTabla();
+             ContenidoTabla = getContenidoTabla();
             double cantidadTemp = (NombreOriginalArchivo.Length + 1 + ContenidoTabla.Length + 2 + TextoCompreso.Length);
             double originalTemp = TextoArchivo.Length;
             Factor = originalTemp / cantidadTemp;
@@ -88,11 +97,16 @@ namespace compresionLZW
                 temp = (Razon.ToString());
             }
             Razon = double.Parse(temp);
-            escribirArchivoCompreso(NombreArchivoNuevo, NombreOriginalArchivo + "|" + ContenidoTabla + "||" + TextoCompreso);
+            
 
         }
+        public void Escribir(string escribirData) {
 
-        private String getContenidoTabla()
+            escribirArchivoCompreso(escribirData);
+            //escribirArchivoCompreso(NombreArchivoNuevo, NombreOriginalArchivo + "|" + ContenidoTabla + "||" + TextoCompreso);
+
+        }
+        public String getContenidoTabla()
         {
             String contenido = "";
             for (int i = 0; i < TablaEscribir.Count; i++)
@@ -102,7 +116,7 @@ namespace compresionLZW
             return contenido;
         }
 
-        private bool escribirArchivoCompreso(string nombreArchivo, string contenido)
+        public bool escribirArchivoCompreso(string contenido)
         {
        
             string workingDirectory = Environment.CurrentDirectory;
@@ -115,22 +129,33 @@ namespace compresionLZW
             if (!Directory.Exists(pathDirectorioCompresiones))
                 Directory.CreateDirectory(pathDirectorioCompresiones);
 
-            using (FileStream fs = File.Create(pathDirectorioCompresiones + nombreArchivo + ".lzw")) {
+            using (StreamWriter fs = File.AppendText(pathDirectorioCompresiones + getNombreArchivoNuevo() + ".lzw")) {
                 byte[] byteArray = new UTF8Encoding(true).GetBytes(contenido);
-                fs.Write(byteArray , 0, byteArray.Length);
-                ubicacionArchivo = pathDirectorioCompresiones + nombreArchivo + ".lzw";
+                string textoArchivo = Encoding.UTF8.GetString(byteArray);
+                fs.Write(textoArchivo);
+                ubicacionArchivo = pathDirectorioCompresiones + getNombreArchivoNuevo() + ".lzw";
             }
 
-            PorcentajeReduccion = (contenido.Length * 100) / (TextoArchivo.Length);
+            //PorcentajeReduccion = (contenido.Length * 100) / (TextoArchivo.Length);
            
             return true;
         }
 
-        private void ObtenerCaracteres()
+        public void ObtenerCaracteres(string text)
         {
+            TextoArchivo = text;
             string caracter = ((char)TextoArchivo[0]).ToString();
-            TablaCaracteres.Add(caracter, contadorCaracteres);
-            TablaEscribir.Add(caracter + "01");
+            if (!TablaCaracteres.ContainsKey(caracter))
+            {
+                TablaCaracteres.Add(caracter, contadorCaracteres);
+            }
+
+            if (!TablaEscribir.Contains(caracter))
+            {
+                TablaEscribir.Add(caracter + "01");
+            }
+
+            
             for (int i = 1; i < TextoArchivo.Length ; i++)
             {
                 caracter = ((char)TextoArchivo[i]).ToString();
