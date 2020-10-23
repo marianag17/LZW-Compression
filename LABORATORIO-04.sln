@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LZWCompression", "LZWCompression\LZWCompression.csproj", "{7D682DE5-F741-4E68-87FE-AF9CF4D26DBE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "compresionLZW", "compresionLZW\compresionLZW.csproj", "{61EC55E4-9F78-462B-87A7-2D024B572EE1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testLZW", "testLZW\testLZW.csproj", "{0131884B-403D-4394-82C8-79E9138AE550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiLZW", "ApiLZW\ApiLZW.csproj", "{6C8AC552-D6D8-4279-A879-E1B53A92D902}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiLZW", "ApiLZW\ApiLZW.csproj", "{6C8AC552-D6D8-4279-A879-E1B53A92D902}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealeseLZWLib", "RealeseLZWLib\RealeseLZWLib.csproj", "{D611E3BC-3185-4846-A0D2-9B69DFEE36F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRealeseLZW", "TestRealeseLZW\TestRealeseLZW.csproj", "{598E36E9-0765-4D68-AF2F-9914FE97BF4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealeseFinalLZW", "RealeseFinalLZW\RealeseFinalLZW.csproj", "{CB158A0A-707E-4756-8682-49D5A6061C26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7D682DE5-F741-4E68-87FE-AF9CF4D26DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D682DE5-F741-4E68-87FE-AF9CF4D26DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D682DE5-F741-4E68-87FE-AF9CF4D26DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D682DE5-F741-4E68-87FE-AF9CF4D26DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61EC55E4-9F78-462B-87A7-2D024B572EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61EC55E4-9F78-462B-87A7-2D024B572EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61EC55E4-9F78-462B-87A7-2D024B572EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61EC55E4-9F78-462B-87A7-2D024B572EE1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0131884B-403D-4394-82C8-79E9138AE550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0131884B-403D-4394-82C8-79E9138AE550}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0131884B-403D-4394-82C8-79E9138AE550}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0131884B-403D-4394-82C8-79E9138AE550}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C8AC552-D6D8-4279-A879-E1B53A92D902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D611E3BC-3185-4846-A0D2-9B69DFEE36F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D611E3BC-3185-4846-A0D2-9B69DFEE36F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D611E3BC-3185-4846-A0D2-9B69DFEE36F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D611E3BC-3185-4846-A0D2-9B69DFEE36F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598E36E9-0765-4D68-AF2F-9914FE97BF4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598E36E9-0765-4D68-AF2F-9914FE97BF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598E36E9-0765-4D68-AF2F-9914FE97BF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598E36E9-0765-4D68-AF2F-9914FE97BF4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB158A0A-707E-4756-8682-49D5A6061C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB158A0A-707E-4756-8682-49D5A6061C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB158A0A-707E-4756-8682-49D5A6061C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB158A0A-707E-4756-8682-49D5A6061C26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

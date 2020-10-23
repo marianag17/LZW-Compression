@@ -1,0 +1,9 @@
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\bin\Debug\netstandard2.0\RealeseFinalLZW.deps.json
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\bin\Debug\netstandard2.0\RealeseFinalLZW.dll
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\bin\Debug\netstandard2.0\RealeseFinalLZW.pdb
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\obj\Debug\netstandard2.0\RealeseFinalLZW.csprojAssemblyReference.cache
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\obj\Debug\netstandard2.0\RealeseFinalLZW.AssemblyInfoInputs.cache
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\obj\Debug\netstandard2.0\RealeseFinalLZW.AssemblyInfo.cs
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\obj\Debug\netstandard2.0\RealeseFinalLZW.dll
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\obj\Debug\netstandard2.0\RealeseFinalLZW.pdb
+C:\jasolis\c#\LZW-Compression\RealeseFinalLZW\obj\Debug\netstandard2.0\RealeseFinalLZW.csproj.CoreCompileInputs.cache

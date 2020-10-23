@@ -13,9 +13,9 @@ namespace compresionLZW
       
         private Dictionary<string, int> TablaCaracteres = new Dictionary<string, int>();
         private Dictionary<int, string> TablaCaracteresInversa = new Dictionary<int, string>();
-        private ArrayList TablaEscribir = new ArrayList();
+        private Dictionary<string,string> TablaEscribir = new Dictionary<string, string>();
         private int PorcentajeReduccion = 0;
-        int contadorCaracteres = 2;
+        int contadorCaracteres = 1;
         public String ContenidoTabla = "";
         public string TextoCompreso = "";
         public double Factor;
@@ -23,6 +23,8 @@ namespace compresionLZW
         public string NombreArchivoNuevo = "";
         public string NombreOriginalArchivo = "";
         public string ubicacionArchivo = "";
+        public string CadenaDescompresa = "";
+        public int seekTextoCompreso = 0;
 
         public CompresionLzw()
         {
@@ -40,11 +42,11 @@ namespace compresionLZW
             List<int> Compreso = new List<int>();
             string actual = "", siguiente = "";
             int compreso = 0;
-            if (Compreso.Count == 0)
-            {
-                Compreso.Add(1);
-            }
-            for (int i = 1; i < TextoArchivo.Length - 1; i++)
+            //if (Compreso.Count == 0)
+            //{
+            //    Compreso.Add(1);
+            //}
+            for (int i = 0; i < TextoArchivo.Length - 1; i++)
             {
                 actual = (TextoArchivo[i]).ToString();
                 for (int j = i + 1; j < TextoArchivo.Length; j++)
@@ -74,6 +76,8 @@ namespace compresionLZW
                 TextoCompreso += ((char)NumeroActual).ToString();
             }
              ContenidoTabla = getContenidoTabla();
+
+
             double cantidadTemp = (NombreOriginalArchivo.Length + 1 + ContenidoTabla.Length + 2 + TextoCompreso.Length);
             double originalTemp = TextoArchivo.Length;
             Factor = originalTemp / cantidadTemp;
@@ -109,10 +113,12 @@ namespace compresionLZW
         public String getContenidoTabla()
         {
             String contenido = "";
-            for (int i = 0; i < TablaEscribir.Count; i++)
+
+            foreach (var item in TablaEscribir)
             {
-                contenido += TablaEscribir[i];
+                contenido += item.Key + item.Value;
             }
+            
             return contenido;
         }
 
@@ -148,11 +154,12 @@ namespace compresionLZW
             if (!TablaCaracteres.ContainsKey(caracter))
             {
                 TablaCaracteres.Add(caracter, contadorCaracteres);
+                contadorCaracteres++;
             }
 
-            if (!TablaEscribir.Contains(caracter))
+            if (!TablaEscribir.ContainsKey(caracter))
             {
-                TablaEscribir.Add(caracter + "01");
+                TablaEscribir.Add(caracter, "01");
             }
 
             
@@ -164,11 +171,19 @@ namespace compresionLZW
                     TablaCaracteres.Add(caracter, contadorCaracteres);
                     if (contadorCaracteres <= 9)
                     {
-                        TablaEscribir.Add(caracter + "0" + contadorCaracteres.ToString());
+                        if (!TablaEscribir.ContainsKey(caracter))
+                        {
+                            TablaEscribir.Add(caracter, "0" + contadorCaracteres.ToString());
+                        }
+                        
                     }
                     else
                     {
-                        TablaEscribir.Add(caracter + contadorCaracteres.ToString());
+                        if (!TablaEscribir.ContainsKey(caracter))
+                        {
+                            TablaEscribir.Add(caracter,  contadorCaracteres.ToString());
+                        }
+                        
                     }
                     contadorCaracteres++;
                 }
@@ -176,22 +191,22 @@ namespace compresionLZW
         }
 
         // Proceso de descompresión
-        public void Descomprimir() 
+        public void Descomprimir(string texto) 
         {
-            separarContenido();
-            string CadenaDescompresa = "";
+            TextoArchivo = texto;
+            CadenaDescompresa = "";
             int asciiAnterior = (int)TextoArchivo[0];
             string anterior = "";
             int asciiActual = 0;
             string actual = "";
 
-            if (TablaCaracteresInversa.ContainsKey(asciiAnterior))
+            if (TablaCaracteresInversa.ContainsKey(asciiActual))
             {
-                CadenaDescompresa += TablaCaracteresInversa[asciiAnterior];
+                CadenaDescompresa += TablaCaracteresInversa[asciiActual];
             }
             
 
-            for (int i = 1; i<TextoArchivo.Length; i++)
+            for (int i = 0; i<TextoArchivo.Length; i++)
             {
                 asciiActual = (int) TextoArchivo[i];
                 actual = (TablaCaracteresInversa[asciiActual]).ToString();
@@ -206,10 +221,13 @@ namespace compresionLZW
                 asciiAnterior = asciiActual;
                 anterior = TablaCaracteresInversa[asciiAnterior];
             }
-            escribirArchivoDescompreso(getNombreOriginalArchivo(), CadenaDescompresa);
+
+
+
+           
     }
 
-    public void escribirArchivoDescompreso(String nombreArchivo, String contenido) 
+    public void escribirArchivoDescompreso(String contenido) 
     {
         string workingDirectory = Environment.CurrentDirectory;
         string pathFolderActual = Directory.GetParent(workingDirectory).FullName;
@@ -220,17 +238,19 @@ namespace compresionLZW
             }
         
 
-        using (FileStream fs = File.Create(pathDirectorioDescompresiones + nombreArchivo))
+        using (StreamWriter fs = File.AppendText(pathDirectorioDescompresiones + getNombreOriginalArchivo()))
         {
             byte[] byteArray = new UTF8Encoding(true).GetBytes(contenido);
-            fs.Write(byteArray, 0, byteArray.Length);
-            ubicacionArchivo = pathDirectorioDescompresiones + nombreArchivo;
+            string textoArchivo = Encoding.UTF8.GetString(byteArray);
+            fs.Write(textoArchivo);
+            ubicacionArchivo = pathDirectorioDescompresiones + getNombreOriginalArchivo();
         }
           
     }
 
-    private void separarContenido()
+    public void separarContenido(string texto)
     {
+        TextoArchivo = texto;
         string nombre = "";
         for (int i = 0; i < TextoArchivo.Length; i++)
         {
@@ -241,17 +261,23 @@ namespace compresionLZW
             else
             {
                 TextoArchivo = TextoArchivo.Substring(i + 1);
+                seekTextoCompreso = i+1;
                 i = TextoArchivo.Length;
+                
             }
         }
+
         setNombreOriginalArchivo(nombre);
         string tablaCaracteres = "";
+
         for (int i = 0; i < TextoArchivo.Length; i++)
         {
             if (TextoArchivo[i].Equals('|') && TextoArchivo[(i + 1)].Equals('|'))
             {
-                TextoArchivo = TextoArchivo.Substring(i + 2);
+                //TextoArchivo = TextoArchivo.Substring(i + 2);
+                seekTextoCompreso += i + 2;
                 i = TextoArchivo.Length;
+                
             }
             else
             {
@@ -270,8 +296,16 @@ namespace compresionLZW
                 caracterAparicion += ((char)tablaCaracteres[i]).ToString();
             }
             tablaCaracteres = tablaCaracteres.Substring(2);
-            TablaCaracteres.Add(caracter, int.Parse(caracterAparicion));
-            TablaCaracteresInversa.Add(int.Parse(caracterAparicion), caracter);
+            if (!TablaCaracteres.ContainsKey(caracter))
+            {
+                TablaCaracteres.Add(caracter, int.Parse(caracterAparicion));
+            }
+            if (!TablaCaracteresInversa.ContainsKey(int.Parse(caracterAparicion)))
+            {
+                    TablaCaracteresInversa.Add(int.Parse(caracterAparicion), caracter);
+            }
+
+               
             caracter = "";
             caracterAparicion = "";
         }

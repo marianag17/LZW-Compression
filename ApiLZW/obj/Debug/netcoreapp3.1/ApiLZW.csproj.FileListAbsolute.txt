@@ -10,8 +10,6 @@ C:\jasolis\c#\LZW-Compression\ApiLZW\bin\Debug\netcoreapp3.1\ApiLZW.pdb
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.csprojAssemblyReference.cache
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.AssemblyInfoInputs.cache
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.AssemblyInfo.cs
-C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.csproj.CoreCompileInputs.cache
-C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.MvcApplicationPartsAssemblyInfo.cache
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.RazorTargetAssemblyInfo.cache
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\staticwebassets\ApiLZW.StaticWebAssets.Manifest.cache
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\staticwebassets\ApiLZW.StaticWebAssets.xml

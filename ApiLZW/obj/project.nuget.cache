@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "BDQJCfNqaFx2cKvGwyal1DH3tLX7rTONq671vOeLfJBZXe44gNaH/G99PTR3rkqmC/7HDl+3YVquey7twzXbUA==",
+  "dgSpecHash": "DsnHLPkUgPN+pPaIah2UzdOQE7NTbR6qQljtm+jifwHveyUcWWdWB4LdqjLdEfxs+eq34ssC//G3Wz0ojCxVhg==",
   "success": true,
   "projectFilePath": "C:\\jasolis\\c#\\LZW-Compression\\ApiLZW\\ApiLZW.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Juan-Gtsk\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.1\\microsoft.netcore.platforms.3.1.1.nupkg.sha512",
+    "C:\\Users\\Juan-Gtsk\\.nuget\\packages\\system.text.encoding.codepages\\4.7.1\\system.text.encoding.codepages.4.7.1.nupkg.sha512"
+  ],
   "logs": []
 }

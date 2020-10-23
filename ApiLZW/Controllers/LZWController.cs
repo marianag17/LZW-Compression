@@ -43,8 +43,8 @@ namespace ApiLZW.Controllers
                     do
                     {
                         
-                        char[] buffer = new char[5000];
-                        int n = stream.ReadBlock(buffer, 0, 5000);
+                        char[] buffer = new char[300000];
+                        int n = stream.ReadBlock(buffer, 0, 300000);
                         char[] result = new char[n];
                         Array.Copy(buffer, result, n);
 
@@ -67,8 +67,8 @@ namespace ApiLZW.Controllers
                         do
                         {
                             
-                            char[] buffer = new char[5000];
-                            int n = stream2.ReadBlock(buffer, 0, 5000);
+                            char[] buffer = new char[300000];
+                            int n = stream2.ReadBlock(buffer, 0, 300000);
                             char[] result = new char[n];
                             Array.Copy(buffer, result, n);
 
@@ -117,32 +117,72 @@ namespace ApiLZW.Controllers
         [HttpPost("decompress/")]
         public async Task<ActionResult> PostDecompress([FromForm] IFormFile file)
         {
-            string textoArchivo = "";
 
-            try {
+
+
+
+            try
+            {
                 using (var stream = new StreamReader(file.OpenReadStream()))
                 {
 
-                    textoArchivo += stream.ReadToEnd();
+
+                    do
+                    {
+
+                        char[] buffer = new char[20000];
+                        int n = stream.ReadBlock(buffer, 0, 20000);
+                        char[] result = new char[n];
+                        Array.Copy(buffer, result, n);
+
+                        string res = new string(result);
+
+                        Storage.Instance.compress.separarContenido(res);
+
+
+                    }
+
+                    while (!stream.EndOfStream);
+
+                    using (var stream2 = new StreamReader(file.OpenReadStream()))
+                    {
+                        stream2.BaseStream.Seek(Storage.Instance.compress.seekTextoCompreso, SeekOrigin.Begin);
+                        do
+                        {
+
+                            char[] buffer = new char[20000];
+                            int n = stream2.ReadBlock(buffer, 0, 20000);
+                            char[] result = new char[n];
+                            Array.Copy(buffer, result, n);
+
+                            string res = new string(result);
+
+
+                            Storage.Instance.compress.Descomprimir(res);
+                            Storage.Instance.compress.escribirArchivoDescompreso(Storage.Instance.compress.CadenaDescompresa);
+
+                        }
+
+                        while (!stream2.EndOfStream);
+                    }
+
+                    var path = Storage.Instance.compress.ubicacionArchivo;
+
+
+                    var streamCompress = System.IO.File.OpenRead(path);
+                    return new FileStreamResult(streamCompress, "application/txt")
+                    {
+                        FileDownloadName = Storage.Instance.compress.getNombreOriginalArchivo() + ".txt"
+                    };
                 }
-
-                CompresionLzw lzw = new CompresionLzw();
-
-                lzw.Descomprimir();
-
-                var path = lzw.ubicacionArchivo;
-
-
-                var streamCompress = System.IO.File.OpenRead(path);
-                return new FileStreamResult(streamCompress, "application/txt")
-                {
-                    FileDownloadName = lzw.getNombreOriginalArchivo() + ".txt"
-                };
-
             }
-            catch (Exception e) {
+            catch {
+                CompresionLzw compress = Storage.Instance.compress; 
                 return BadRequest();
+            
             }
+          
+            
 
         }
 
