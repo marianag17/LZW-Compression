@@ -1,5 +1,4 @@
-﻿using compresionLZW;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +20,6 @@ namespace ApiLZW.Utils
         }
 
         public List<Compressions> listaCompresiones = new List<Compressions>();
-        public CompresionLzw compress = new CompresionLzw();
+      
     }
 }

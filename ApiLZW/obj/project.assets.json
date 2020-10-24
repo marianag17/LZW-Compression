@@ -29,17 +29,17 @@
           }
         }
       },
-      "compresionLZW/1.0.0": {
+      "RealeseFinalLZW/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "System.Text.Encoding.CodePages": "4.7.1"
         },
         "compile": {
-          "bin/placeholder/compresionLZW.dll": {}
+          "bin/placeholder/RealeseFinalLZW.dll": {}
         },
         "runtime": {
-          "bin/placeholder/compresionLZW.dll": {}
+          "bin/placeholder/RealeseFinalLZW.dll": {}
         }
       }
     }
@@ -104,16 +104,16 @@
         "version.txt"
       ]
     },
-    "compresionLZW/1.0.0": {
+    "RealeseFinalLZW/1.0.0": {
       "type": "project",
-      "path": "../compresionLZW/compresionLZW.csproj",
-      "msbuildProject": "../compresionLZW/compresionLZW.csproj"
+      "path": "../RealeseFinalLZW/RealeseFinalLZW.csproj",
+      "msbuildProject": "../RealeseFinalLZW/RealeseFinalLZW.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "System.Text.Encoding.CodePages >= 4.7.1",
-      "compresionLZW >= 1.0.0"
+      "RealeseFinalLZW >= 1.0.0",
+      "System.Text.Encoding.CodePages >= 4.7.1"
     ]
   },
   "packageFolders": {
@@ -142,8 +142,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj": {
-              "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj"
+            "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\RealeseFinalLZW.csproj": {
+              "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\RealeseFinalLZW.csproj"
             }
           }
         }

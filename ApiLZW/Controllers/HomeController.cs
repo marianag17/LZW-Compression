@@ -17,13 +17,13 @@ namespace ApiLZW.Controllers
             descriptor.Compresion = new DescriptorRuta()
             {
                 Ruta = "/api/compress/{name}",
-                Descripcion = "En esta ruta se puede mandar como parametro el nombre del nuevo archivo compreso por LZW y un archivo de texto que se desea comprimir.",
+                Descripcion = "En esta ruta se puede mandar como parametro el nombre del nuevo archivo compreso por LZW y un archivo de texto que se desea comprimir. La Key en postman para mandar el archivo desde form-data es {file} ",
                 Metodo = "POST"
             };
             descriptor.Descompresion = new DescriptorRuta()
             {
                 Ruta = "/api/decompress",
-                Descripcion = "En esta ruta se manda un archivo .LZW para decompromir",
+                Descripcion = "En esta ruta se manda un archivo .LZW para decompromir, Con 200KB se tarda aproximadamente 12-15 segundos. La Key en postman para mandar el archivo desde form-data es {file}",
                 Metodo = "POST"
             };
 

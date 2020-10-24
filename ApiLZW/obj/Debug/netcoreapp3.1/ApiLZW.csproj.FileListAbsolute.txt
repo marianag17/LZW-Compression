@@ -16,6 +16,10 @@ C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\staticwebassets\Api
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.dll
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.pdb
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.genruntimeconfig.cache
-C:\jasolis\c#\LZW-Compression\ApiLZW\bin\Debug\netcoreapp3.1\compresionLZW.dll
-C:\jasolis\c#\LZW-Compression\ApiLZW\bin\Debug\netcoreapp3.1\compresionLZW.pdb
 C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.csproj.CopyComplete
+C:\jasolis\c#\LZW-Compression\ApiLZW\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\jasolis\c#\LZW-Compression\ApiLZW\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+C:\jasolis\c#\LZW-Compression\ApiLZW\bin\Debug\netcoreapp3.1\RealeseFinalLZW.dll
+C:\jasolis\c#\LZW-Compression\ApiLZW\bin\Debug\netcoreapp3.1\RealeseFinalLZW.pdb
+C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.csproj.CoreCompileInputs.cache
+C:\jasolis\c#\LZW-Compression\ApiLZW\obj\Debug\netcoreapp3.1\ApiLZW.MvcApplicationPartsAssemblyInfo.cache

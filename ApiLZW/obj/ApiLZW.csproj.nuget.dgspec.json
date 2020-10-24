@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj": {
-                "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj"
+              "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\RealeseFinalLZW.csproj": {
+                "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\RealeseFinalLZW.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj": {
+    "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\RealeseFinalLZW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj",
-        "projectName": "compresionLZW",
-        "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\compresionLZW.csproj",
+        "projectUniqueName": "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\RealeseFinalLZW.csproj",
+        "projectName": "RealeseFinalLZW",
+        "projectPath": "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\RealeseFinalLZW.csproj",
         "packagesPath": "C:\\Users\\Juan-Gtsk\\.nuget\\packages\\",
-        "outputPath": "C:\\jasolis\\c#\\LZW-Compression\\compresionLZW\\obj\\",
+        "outputPath": "C:\\jasolis\\c#\\LZW-Compression\\RealeseFinalLZW\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Juan-Gtsk\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\compresionLZW\compresionLZW.csproj" />
+    <ProjectReference Include="..\RealeseFinalLZW\RealeseFinalLZW.csproj" />
   </ItemGroup>
 
 
